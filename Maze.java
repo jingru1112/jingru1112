@@ -36,8 +36,8 @@ public class Maze
         System.out.print("Your solution: ");
         solution = sc.nextLine();
         
-        int row = 1;
-        int col = 0;
+        int currentRow = 1;
+        int currentCol = 0;
         boolean done = false;
         boolean solved = false;
         int charIndex = 0;
@@ -46,33 +46,33 @@ public class Maze
         while(!done && charIndex < solutionLength)
         {
             char direction = solution.charAt(charIndex);
-            System.out.println("Location: (" + row + ", " + col 
+            System.out.println("Location: (" + currentRow + ", " + currentCol 
                 + "), next direction: '" + direction + "'");
             
             switch(direction)
             {
                 case NORTH:
-                    row--;
+                    currentRow--;
                     break;
                 
                 case EAST:
-                    col++;
+                    currentCol++;
                     break;
                     
                 case SOUTH:
-                    row++;
+                    currentRow++;
                     break;
                     
                 case WEST:
-                    col--;
+                    currentCol--;
                     break;
             
                 default:
                     System.out.println("You have no idea where you're going."); // Invalid direction.
             }
             
-            if(row < 0 || col < 0
-                || row >= grid.length || col >= grid[row].length)
+            if(currentRow < 0 || currentCol < 0
+                || currentRow >= grid.length || currentCol >= grid[currentRow].length)
             {
                 done = true;
                 System.out.println("You fall into the chasm of doom."); // Out of bounds.
