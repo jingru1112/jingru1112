@@ -68,10 +68,11 @@ public class Maze {
                     || currentCol >= grid[currentRow].length) {
                 done = true;
                 System.out.println("You fall into the chasm of doom."); // Out of bounds.
+
             } else {
-                switch (grid[currentRow][currentCol]) {
+                switch (grid[row][col]) {
                     case Maze.EMPTY:
-                        grid[currentRow][currentCol] = Maze.VISITED;
+                        grid[row][col] = Maze.VISITED;
                         break;
                     case Maze.WALL:
                         done = true;
